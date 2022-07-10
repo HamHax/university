@@ -1,3 +1,4 @@
+import React, { Component } from "react"
 import "./App.css"
 import Wrapper from "./Ui/Wrapper/Wrapper"
 import Button from "./Components/Button/Button"
@@ -5,7 +6,8 @@ import Input from "./Components/Input/Input"
 import List from "./Components/List/List"
 import Listitem from "./Components/Listitem/Listitem"
 import classes from "./Ui/Global.module.css"
-import React, { Component } from "react"
+import Block from "./Ui/j/Block"
+
 
 
 class App extends Component{
@@ -27,19 +29,18 @@ class App extends Component{
     return(
       <Wrapper>
         <input ref= {this.myRef}/>
-        <Button onClick={this.findeUniverse}>Finde univers</Button>
+        <Button onClick={this.findeUniverse}>Search</Button>
         {
           <List>
             {this.state.univers.map(univer =>{
-              return <Listitem key={Math.random()} className='item'>
-                {univer.alpha_two_code}
-                <br />
-                {univer.country}
-                <br />
-                {univer.name}
-                <br />
-               {univer.web_pages}
+              return( 
+              <Listitem className={classes.listitem} key={Math.random()} >
+               {univer.alpha_two_code}   <br />
+               {univer.country} <br />
+               {univer.name} <br />
+               {univer.web_pages}<br />
               </Listitem>
+              )
             })}
           </List>
         }
